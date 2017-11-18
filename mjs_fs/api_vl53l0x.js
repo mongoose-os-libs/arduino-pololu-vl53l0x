@@ -4,6 +4,7 @@
 let Pololu_VL53L0X = {
   _create: ffi('void *mgos_VL53L0X_create(void)'),
   _begin: ffi('void mgos_VL53L0X_begin(void *)'),
+  _end: ffi('void mgos_VL53L0X_end(void *)'),
   _close: ffi('void mgos_VL53L0X_close(void *)'),
   _lstatus: ffi('int mgos_VL53L0X_getLastStatus(void *)'),
   _setaddr: ffi('void mgos_VL53L0X_setAddress(void *, int)'),
@@ -35,6 +36,10 @@ let Pololu_VL53L0X = {
   _proto: {
     begin: function() {
       return Pololu_VL53L0X._begin(this.vls);
+    },
+
+    end: function() {
+      return Pololu_VL53L0X._end(this.vls);
     },
 
     close: function() {

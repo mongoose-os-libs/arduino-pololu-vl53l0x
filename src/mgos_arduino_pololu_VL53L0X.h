@@ -11,6 +11,7 @@ extern "C"
 
 VL53L0X *mgos_VL53L0X_create(void);
 void mgos_VL53L0X_begin(VL53L0X *vl53);
+void mgos_VL53L0X_end(VL53L0X *vl53);
 void mgos_VL53L0X_close(VL53L0X *vl53);
 
 int mgos_VL53L0X_getLastStatus(VL53L0X *vl53);

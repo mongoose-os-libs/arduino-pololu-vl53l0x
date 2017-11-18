@@ -73,22 +73,26 @@ when storage and memory are less of an issue, consider using the VL53L0X API dir
 
 ## Library reference
 
-* `VL53L0X(void)`<br>
+* `Pololu_VL53L0X.create()`<br>
   Constructor.
 
-* `int getLastStatus(void)`<br>
+* `int getLastStatus()`<br>
   The status of the last I&sup2;C write transmission. See the
   [`Wire.endTransmission()` documentation](http://arduino.cc/en/Reference/WireEndTransmission)
   for return values.
 
-* `void setAddress(uint8_t new_addr)`<br>
+* `void setAddress(int new_addr)`<br>
   Changes the I&sup2;C slave device address of the VL53L0X to the given value (7-bit).
 
-* `int getAddress(void)`<br>
+* `int getAddress()`<br>
   Returns the current I&sup2;C address.
 
-* `bool init_2v8(void)`<br>
-* `bool init_1v8(void)`<br>
+* `void begin()`<br>
+* `void end()`<br>
+  Begin or end underlying Arduino's I&sup2;C library. Call begin before call init.
+
+* `bool init_2v8()`<br>
+* `bool init_1v8()`<br>
   Iniitializes and configures the sensor. If the optional argument `io_2v8` is true (the default if not specified), the sensor is configured for 2V8 mode (2.8 V I/O); if false, the sensor is left in 1V8 mode. The return value is a boolean indicating whether the initialization completed successfully.
 
 * `void writeReg(int reg, int value)`<br>
@@ -121,13 +125,13 @@ when storage and memory are less of an issue, consider using the VL53L0X API dir
 * `bool setSignalRateLimit(float limit_Mcps)`<br>
   Sets the return signal rate limit to the given value in units of MCPS (mega counts per second). This is the minimum amplitude of the signal reflected from the target and received by the sensor necessary for it to report a valid reading. Setting a lower limit increases the potential range of the sensor but also increases the likelihood of getting an inaccurate reading because of reflections from objects other than the intended target. This limit is initialized to 0.25 MCPS by default. The return value is a boolean indicating whether the requested limit was valid.
 
-* `float getSignalRateLimit(void)`<br>
+* `float getSignalRateLimit()`<br>
   Returns the current return signal rate limit in MCPS.
 
 * `bool setMeasurementTimingBudget(int budget_us)`<br>
   Sets the measurement timing budget to the given value in microseconds. This is the time allowed for one range measurement; a longer timing budget allows for more accurate measurements. The default budget is about 33000 microseconds, or 33 ms; the minimum is 20 ms. The return value is a boolean indicating whether the requested budget was valid.
 
-* `int getMeasurementTimingBudget(void)`<br>
+* `int getMeasurementTimingBudget()`<br>
   Returns the current measurement timing budget in microseconds.
 
 * `bool setVcselPulsePeriod(vcselPeriodType type, int period_pclks)`
@@ -144,22 +148,22 @@ when storage and memory are less of an issue, consider using the VL53L0X API dir
 * `void startContinuous(int period_ms = 0)`<br>
   Starts continuous ranging measurements. If the optional argument `period_ms` is 0 (the default if not specified), continuous back-to-back mode is used (the sensor takes measurements as often as possible); if it is nonzero, continuous timed mode is used, with the specified inter-measurement period in milliseconds determining how often the sensor takes a measurement.
 
-* `void stopContinuous(void)`<br>
+* `void stopContinuous()`<br>
   Stops continuous mode.
 
-* `int readRangeContinuousMillimeters(void)`<br>
+* `int readRangeContinuousMillimeters()`<br>
   Returns a range reading in millimeters when continuous mode is active.
 
-* `int readRangeSingleMillimeters(void)`<br>
+* `int readRangeSingleMillimeters()`<br>
   Performs a single-shot ranging measurement and returns the reading in millimeters.
 
 * `void setTimeout(int timeout)`<br>
   Sets a timeout period in milliseconds after which read operations will abort if the sensor is not ready. A value of 0 disables the timeout.
 
-* `int getTimeout(void)`<br>
+* `int getTimeout()`<br>
   Returns the current timeout period setting.
 
-* `bool timeoutOccurred(void)`<br>
+* `bool timeoutOccurred()`<br>
   Indicates whether a read timeout has occurred since the last call to `timeoutOccurred()`.
 
 ## Version history
