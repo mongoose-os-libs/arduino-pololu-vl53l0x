@@ -7,9 +7,11 @@ VL53L0X *mgos_VL53L0X_create(void) {
 }
 
 void mgos_VL53L0X_begin(VL53L0X *vl53) {
+  if (vl53 == nullptr) return;
   Wire.begin();
 }
 void mgos_VL53L0X_end(VL53L0X *vl53) {
+  if (vl53 == nullptr) return;
   Wire.end();
 }
 void mgos_VL53L0X_close(VL53L0X *vl53) {

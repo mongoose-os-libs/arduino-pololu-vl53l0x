@@ -1,7 +1,7 @@
 author: dcato
 type: lib
 description: Arduino pololu VL53L0X library
-version: 1.0
+version: 1.1
 
 sources:
   - src

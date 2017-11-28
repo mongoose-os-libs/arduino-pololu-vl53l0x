@@ -169,3 +169,4 @@ when storage and memory are less of an issue, consider using the VL53L0X API dir
 ## Version history
 
 * 1.0 (2017 Nov 17): Original release.
+* 1.1 (2017 Nov 29): Avoid "unused-parameter" error.
