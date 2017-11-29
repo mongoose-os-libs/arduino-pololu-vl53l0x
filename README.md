@@ -45,7 +45,7 @@ config_schema:
  - ["i2c.scl_gpio", 22]
 
 libs:
-  - origin: https://github.com/dcato/arduino-pololu-vl53l0x
+  - origin: https://github.com/mongoose-os-libs/arduino-pololu-vl53l0x
 ```
 
 
