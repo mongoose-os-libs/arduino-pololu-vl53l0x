@@ -6,8 +6,8 @@ version: 1.1
 sources:
   - src
 libs:
-  - origin: https://github.com/mongoose-os-libs/arduino-compat
-  - origin: https://github.com/mongoose-os-libs/arduino-wire
+  - location: https://github.com/mongoose-os-libs/arduino-compat
+  - location: https://github.com/mongoose-os-libs/arduino-wire
 tags:
   - arduino
   - c
